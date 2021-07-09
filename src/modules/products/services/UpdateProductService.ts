@@ -24,11 +24,11 @@ class UpdateProductService {
     if (!product) {
       throw new AppError('Produto Não Localizado!');
     }
-    const productExists = await productsRepository.findByName(name);
-    //Valida se não existe nenhum produto com o mesmo nome.
-    if (productExists) {
-      throw new AppError('Produto já cadastrado');
-    }
+    // const productExists = await productsRepository.findByName(name);
+    // //Valida se não existe nenhum produto com o mesmo nome.
+    // if (productExists) {
+    //   throw new AppError('Produto já cadastrado');
+    // }
 
     product.name = name;
     product.price = price;
