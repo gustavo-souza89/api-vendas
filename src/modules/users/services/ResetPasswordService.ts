@@ -14,7 +14,7 @@ class ResetPasswordService {
   public async execute({ token, password }: IRequest): Promise<void> {
     const usersRepository = getCustomRepository(UsersRepository);
     const userTokensRepository = getCustomRepository(UserTokensRepository);
-
+    console.log(token);
     const userToken = await userTokensRepository.findeByToken(token);
 
     if (!userToken) {
@@ -22,7 +22,7 @@ class ResetPasswordService {
     }
 
     const user = await usersRepository.findById(userToken.user_id);
-
+    console.log(user);
     if (!user) {
       throw new AppError('User does not exists.');
     }
